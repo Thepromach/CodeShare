@@ -1,0 +1,169 @@
+
+
+*{
+    margin: 0%;
+}
+
+body{
+    min-width: 400px;
+}
+
+h1{
+    padding: 3px;
+}
+
+h1 a{
+    font-size: 48px;
+    color: #00A0FF;
+    text-decoration: none;
+    /*font-family: Consolas;*/
+    font-family: 'Righteous', cursive;
+}
+
+#username {
+    font-size: 32px;
+    font-family: Consolas;
+    color: #00A0FF;
+}
+
+.code{
+    margin: 1%;
+    margin-left: 0%;
+    padding: 5px;
+    border-style: hidden;
+    border-radius: 10px;
+    background-color: #FAFAFA;
+    max-width: 500px;
+
+    box-shadow: 1px 1px #AA000000;
+}
+
+.code h2 a{
+    margin: 0%;
+    text-decoration: none;
+    color: #000000;
+}
+
+input[type=text], select, input[type=password]{
+    width: 50%;
+    padding: 7px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea{
+    width: 100%;
+    height: 100px;
+    padding: 7px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 2%;
+}
+
+#login_form{
+    padding-left: 10px;
+}
+
+#login_form input{
+    width: 20%;
+}
+
+#login_form button{
+    padding: 10px 16px;
+    margin-left: 10px;
+    margin-right: 5px; 
+}
+
+#delete{
+    color: #FF0000;
+    text-decoration: none;
+    float: right;
+}
+
+
+
+#header{
+    background-color: #A0A0A0;
+    width: 100%;
+    height: 42px;
+    padding: 7px 0px;
+}
+
+#header a{
+
+    margin-left: 0.5%;
+    padding: 5px 14px;
+    text-align: center;
+    font-size: 28px;
+    background-color: #00A0FF;
+    text-decoration: none;
+    font-family: Consolas;
+    color: #FAFAFA;
+    display: inline-block;
+
+    /*border-style: hidden;
+    border-radius: 4px;*/
+}
+#header a#logout{
+    background-color: #FF2000;
+    float: right;
+    margin-right: 10px;
+}
+
+#body{
+    padding-top: 1%;
+    padding-left: 2%;
+}
+
+#left{
+    width: 50%;
+    float: left;
+}
+
+#right{
+    width: 40%;
+    float: right;
+}
+
+#error{
+    color: #FF0000;
+}
+
+@media screen and (max-width: 600px){
+
+    #header{
+        height: 32px;
+    }
+
+    #header a{
+        padding: 2px 7px;
+        font-size: 24px;
+    }
+
+    #post{
+        display: none !important;
+    }
+
+    #header a#logout{
+        background-color: #FF2000;
+        float: none;
+        margin-right: 0px;
+    }
+}
