@@ -21,14 +21,6 @@ function generateRandomString($length) {
     return $randomString;
 }
 
-
-//Creates default code block
-function codeBlock($id, $title, $language, $code){
-    echo '<div class="code"><h2><a href="code.php?id='. $id .'">'. $title .'</a></h2>';
-    echo '<pre><code class="'. $language .'">'. htmlspecialchars($code) .'</code></pre></div>';
-}
-
-
 //delete post that belongs to user
 function deletePost($id, $userid, $conn){
     $sql_command = "DELETE FROM Code WHERE Id=". $id . "&& UserId=" . $userid .";";
@@ -56,6 +48,13 @@ function createUser($name, $pass, $conn){
     return false;
 }
 
+//Creates default code block
+function codeBlock($id, $title, $language, $code){
+    echo '<div class="code"><h2><a href="code.php?id='. $id .'">'. $title .'</a></h2>';
+    echo '<pre><code class="'. $language .'">'. htmlspecialchars($code) .'</code></pre></div>';
+}
+
+//create codeblock with delete button
 function codeBlockWithDelete($id, $title, $language, $code){
     echo '<div class="code"><h2><a href="code.php?id='. $id .'">'. $title .'</a> <a id="delete" href="delete.php?id='. $id .'">X</a></h2>';
     echo '<pre><code class="'. $language .'">'. htmlspecialchars($code) .'</code></pre></div>';

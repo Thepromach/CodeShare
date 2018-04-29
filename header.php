@@ -34,7 +34,13 @@
                 
                 echo '<a id="logout" href="login.php">Logout</a> ';
             }else{
-                include("login_form.php");
+
+                echo '<form id="login_form" action="login.php" method="post">';
+                echo 'Username: <input type="text" name="username"></input>';
+                echo 'Password: <input type="password" name="password"></input>';
+                echo '<button type="submit" name="login" value="Login">Login</button>';
+                echo '<button type="submit" name="register" value="Register">Register</button>';
+                echo '</form>';
             }
         ?>
     </div>

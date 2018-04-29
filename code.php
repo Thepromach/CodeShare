@@ -29,8 +29,6 @@ else if(isset($_POST["Code"]) && $_SESSION["userid"]){ //if post and code is set
 }else{ //else code insert form
 
     echo '<div id="left">';
-
-
     echo '<form action="code.php" method="Post">';
     echo '<p>Title: <input type="text" name="Title" id="Title"></input></p>';
     echo '<p>Language: <input type="text" name="Language" id="Language"></input></p>';
