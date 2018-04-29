@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CodeShare</title>
 
+    <!--highlight.js setup-->
     <link rel="stylesheet" href="styles/default.css">
     <script src="scripts/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
@@ -25,6 +26,7 @@
     <h1><a href="index.php">CodeShare</a></h1>
     <div id="header">
         <?php
+            //if login we display links else include login_form
             if(isset($_SESSION["userid"])){
                 echo '<a href="index.php">Main Page</a> ';
                 echo '<a href="profile.php">Profile</a> ';

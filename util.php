@@ -2,13 +2,15 @@
 
 session_start();
 
-//TODO: change username and password
+//NOTE: change username and password
 $conn = new mysqli('127.0.0.1', 'root', '', 'CodeShare');
 
 if(mysqli_connect_errno()){
     die("Connection to database failed" .  mysqli_connect_error());
 }
 
+
+//Random string generator
 function generateRandomString($length) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
@@ -19,11 +21,15 @@ function generateRandomString($length) {
     return $randomString;
 }
 
+
+//Creates default code block
 function codeBlock($id, $title, $language, $code){
     echo '<div class="code"><h2><a href="code.php?id='. $id .'">'. $title .'</a></h2>';
     echo '<pre><code class="'. $language .'">'. htmlspecialchars($code) .'</code></pre></div>';
 }
 
+
+//delete post that belongs to user
 function deletePost($id, $userid, $conn){
     $sql_command = "DELETE FROM Code WHERE Id=". $id . "&& UserId=" . $userid .";";
     if($conn->query($sql_command)){  
@@ -33,9 +39,10 @@ function deletePost($id, $userid, $conn){
     }
 }
 
+//create user with name and pass
 function createUser($name, $pass, $conn){
     $salt = generateRandomString(32);
-    $hashed_password = hash("sha256", $salt . $pass);
+    $hashed_password = hash("sha256", $salt . $pass); //One way hashing
 
     $sql_command = "INSERT INTO User (Name, Password, Salt)".
     " VALUES('" . $name . "','" . $hashed_password . "','" . $salt . "');";
@@ -47,6 +54,11 @@ function createUser($name, $pass, $conn){
     }
 
     return false;
+}
+
+function codeBlockWithDelete($id, $title, $language, $code){
+    echo '<div class="code"><h2><a href="code.php?id='. $id .'">'. $title .'</a> <a id="delete" href="delete.php?id='. $id .'">X</a></h2>';
+    echo '<pre><code class="'. $language .'">'. htmlspecialchars($code) .'</code></pre></div>';
 }
 
 ?>

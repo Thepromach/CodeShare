@@ -5,7 +5,7 @@
 require("header.php");
 
 
-if(isset($_GET["id"])){
+if(isset($_GET["id"])){ //if id is set we find code with id
     $sql_command = "SELECT Title, Language, Code FROM Code WHERE Id=". $_GET["id"] .";";
     $result = $conn->query($sql_command);
 
@@ -17,7 +17,7 @@ if(isset($_GET["id"])){
         }
     }
 }
-else if(isset($_POST["Code"]) && $_SESSION["userid"]){
+else if(isset($_POST["Code"]) && $_SESSION["userid"]){ //if post and code is set Insert new code block
     $sql_command = "INSERT INTO Code (Title, UserId, Language, Code)".
             " VALUES('". htmlspecialchars($_POST["Title"]) ."', '". $_SESSION["userid"] ."' , '" . htmlspecialchars($_POST["Language"]) ."', '". htmlspecialchars($_POST["Code"]) ."')";
 
@@ -26,7 +26,7 @@ else if(isset($_POST["Code"]) && $_SESSION["userid"]){
     }else{
         echo "Fail";
     }
-}else{
+}else{ //else code insert form
 
     echo '<div id="left">';
 
@@ -41,8 +41,7 @@ else if(isset($_POST["Code"]) && $_SESSION["userid"]){
 
 ?>
     </div>
-    <div id="right">
-        <!--<h2>Review</h2>-->
+    <div id="right"> <!--Code Review div-->
     </div>
 
 <?php
