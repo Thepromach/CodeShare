@@ -16,3 +16,7 @@ after that run create_database.sql to create needed tables.
 Finally change username and password in util.php 
 
 You can also run test.sql to test.
+![alt text](https://raw.githubusercontent.com/Thepromach/CodeShare/master/img/main.PNG)
+![alt text](https://raw.githubusercontent.com/Thepromach/CodeShare/master/img/post.PNG)
+![alt text](https://raw.githubusercontent.com/Thepromach/CodeShare/master/img/profile.PNG)
+![alt text](https://raw.githubusercontent.com/Thepromach/CodeShare/master/img/view.PNG)
