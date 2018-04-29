@@ -3,7 +3,6 @@ CREATE TABLE `User`(
   `Name` VARCHAR(32) NOT NULL ,
   `Password` VARCHAR(256) NOT NULL ,
   `Salt` VARCHAR(256) NOT NULL ,
-  `Status` INT NOT NULL ,
   PRIMARY KEY (`Id`)
 );
   

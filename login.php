@@ -35,23 +35,17 @@ function register($conn, $name, $pass){
     $result = $conn->query($sql_command);
 
     if($result->num_rows == 0){
-
-        $salt = generateRandomString(32);
-        $devkey = generateRandomString(32);
-        $hashed_password = hash("sha256", $salt . $pass);
-
-        $sql_command = "INSERT INTO User (Name, Status, Devkey, Password, Salt)".
-        " VALUES('" . $name . "', 0, '" . $devkey . "' , '" . $hashed_password . "','" . $salt . "');";
-       
-        if($conn->query($sql_command)){
-            
+        if(createUser($name, $pass, $conn)){
             login($conn, $name, $pass);
-
+        }else{
+            echo '<p id="error">' . "Failed to create user" . "</p>";
         }
     }else{
         echo '<p id="error">' . "User " . $name . " already exists" . "</p>";
     }
 }
+
+
 
 
 function login($conn, $name, $pass){
@@ -64,7 +58,6 @@ function login($conn, $name, $pass){
         echo '<p id="error">Password is under 8 characters</p>';
         return;
     }
-    //echo "hei: " . $name . "||" . $pass;
     $sql_command = "SELECT Salt FROM User WHERE Name='" .htmlspecialchars($name)."';";
     $result = $conn->query($sql_command);
     if($result->num_rows == 1){

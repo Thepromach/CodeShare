@@ -92,9 +92,17 @@ button{
 }
 
 #delete{
-    color: #FF0000;
+    font-size: 18px;
+    padding: 2px;
+    background-color: #FF0000;
+    color: #FAFAFA;
     text-decoration: none;
     float: right;
+    border-style: hidden;
+    border-radius: 4px;
+    font-family: consolas;
+    width: 14px;
+    text-align: center;
 }
 
 

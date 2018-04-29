@@ -24,5 +24,29 @@ function codeBlock($id, $title, $language, $code){
     echo '<pre><code class="'. $language .'">'. htmlspecialchars($code) .'</code></pre></div>';
 }
 
+function deletePost($id, $userid, $conn){
+    $sql_command = "DELETE FROM Code WHERE Id=". $id . "&& UserId=" . $userid .";";
+    if($conn->query($sql_command)){  
+        echo "<p>Code snipped deleted</p>";
+    }else{
+        echo '<p id="error">Failed to delete code snipped</p>';
+    }
+}
+
+function createUser($name, $pass, $conn){
+    $salt = generateRandomString(32);
+    $hashed_password = hash("sha256", $salt . $pass);
+
+    $sql_command = "INSERT INTO User (Name, Password, Salt)".
+    " VALUES('" . $name . "','" . $hashed_password . "','" . $salt . "');";
+
+    if($conn->query($sql_command)){
+            
+        return true;
+
+    }
+
+    return false;
+}
 
 ?>
