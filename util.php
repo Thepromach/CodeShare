@@ -37,7 +37,8 @@ function updatePassword($pass, $conn){
         return;
     }
     
-    $hashed_password = hashPassword(htmlspecialchars($pass));
+    $salt = generateRandomString(32);
+    $hashed_password = hash("sha256", $salt . $pass); //One way hashing
     $sql_command = "UPDATE User SET Password = '".$hashed_password."' WHERE Id=". $_SESSION["userid"] .";";
     if($conn->query($sql_command)){
         echo "<p>Password has been change</p>";
@@ -46,17 +47,12 @@ function updatePassword($pass, $conn){
     }
 }
 
-function hashPassword($pass){
-
-    $salt = generateRandomString(32);
-    $hashed_password = hash("sha256", $salt . $pass); //One way hashing
-    return $hashed_password;
-}
-
 //create user with name and pass
 function createUser($name, $pass, $conn){
     
-    $hashed_password = hashPassword($pass);
+
+    $salt = generateRandomString(32);
+    $hashed_password = hash("sha256", $salt . $pass); //One way hashing
     $sql_command = "INSERT INTO User (Name, Password, Salt)".
     " VALUES('" . $name . "','" . $hashed_password . "','" . $salt . "');";
 

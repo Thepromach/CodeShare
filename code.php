@@ -18,12 +18,12 @@ if(isset($_GET["id"])){ //if id is set we find code with id
 }
 else if(isset($_POST["Code"]) && $_SESSION["userid"]){ //if post and code is set Insert new code block
     $sql_command = "INSERT INTO Code (Title, UserId, Language, Code)".
-            " VALUES('". htmlspecialchars($_POST["Title"]) ."', '". $_SESSION["userid"] ."' , '" . htmlspecialchars($_POST["Language"]) ."', '". htmlspecialchars($_POST["Code"]) ."')";
+            " VALUES('". htmlspecialchars($_POST["Title"]) ."', '". $_SESSION["userid"] ."' , '" . htmlspecialchars($_POST["Language"]) ."', '". $_POST["Code"] ."')";
 
     if($conn->query($sql_command)){
         echo "Success";
     }else{
-        echo "Fail";
+        echo "Failed to ";
     }
 }else{ //else code insert form
 

@@ -11,7 +11,7 @@ CREATE TABLE `Code` (
   `UserId` INT,
   `Title` VARCHAR(32),
   `Language` VARCHAR(32),
-  `CODE` TEXT NOT NULL,
+  `Code` TEXT NOT NULL,
    PRIMARY KEY (`Id`)
 );
 
