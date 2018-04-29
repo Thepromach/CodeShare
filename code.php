@@ -6,13 +6,12 @@ require("header.php");
 
 
 if(isset($_GET["id"])){ //if id is set we find code with id
-    $sql_command = "SELECT Title, Language, Code FROM Code WHERE Id=". $_GET["id"] .";";
+    $sql_command = "SELECT Title, Language, Code, UserId FROM Code WHERE Id=". $_GET["id"] .";";
     $result = $conn->query($sql_command);
 
     if($result->num_rows > 0){
 
         while($row = $result->fetch_assoc()){
-
             codeBlock($_GET["id"], $row["Title"], $row["Language"], $row["Code"]);
         }
     }

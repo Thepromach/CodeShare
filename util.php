@@ -31,11 +31,32 @@ function deletePost($id, $userid, $conn){
     }
 }
 
-//create user with name and pass
-function createUser($name, $pass, $conn){
+function updatePassword($pass, $conn){
+    if(strlen($pass) < 8){
+        echo '<p id="error">Password is under 8 characters</p>';
+        return;
+    }
+    
+    $hashed_password = hashPassword(htmlspecialchars($pass));
+    $sql_command = "UPDATE User SET Password = '".$hashed_password."' WHERE Id=". $_SESSION["userid"] .";";
+    if($conn->query($sql_command)){
+        echo "<p>Password has been change</p>";
+    }else{
+        echo '<p id="error">'. "Internal error while trying to update your password" .'</p>';
+    }
+}
+
+function hashPassword($pass){
+
     $salt = generateRandomString(32);
     $hashed_password = hash("sha256", $salt . $pass); //One way hashing
+    return $hashed_password;
+}
 
+//create user with name and pass
+function createUser($name, $pass, $conn){
+    
+    $hashed_password = hashPassword($pass);
     $sql_command = "INSERT INTO User (Name, Password, Salt)".
     " VALUES('" . $name . "','" . $hashed_password . "','" . $salt . "');";
 

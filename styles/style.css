@@ -154,6 +154,19 @@ button{
     color: #FF0000;
 }
 
+#pass{
+    margin-left: 0.5%;
+    padding: 2px 7px;
+    text-align: center;
+    font-size: 18px;
+    background-color: #00A0FF;
+    text-decoration: none;
+    font-family: Consolas;
+    color: #FAFAFA;
+    display: inline-block;
+
+}
+
 @media screen and (max-width: 600px){
 
     #header{
