@@ -3,7 +3,7 @@
 
 
 
-CodeShare is website for sharing small code snippets. Link to the [Website](http://codeshare.gwiddle.co.uk)
+CodeShare is website for sharing small code snippets
 
 ## Setup
 
